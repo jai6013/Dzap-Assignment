@@ -39,9 +39,11 @@ const Disperse = () => {
     }
 
     // success logic
-    alert("Success, Every entry is correct");
-    setText("");
-    setError({});
+    if(text.trim() !== ''){
+      alert("Success, Every entry is correct");
+      setText("");
+      setError({});
+    }
   }, [text]);
 
   const handleOnchange = useCallback((Editor, data, value) => {
@@ -63,6 +65,7 @@ const Disperse = () => {
   };
   return (
     <div className="appContainer">
+      <div className="heading">Addresses with Amounts</div>
       <Editor text={text} onChange={handleOnchange} />
       <div className="inputRule">Separated by ',' or '' or '='</div>
       {!_isEmpty(error) ? (
