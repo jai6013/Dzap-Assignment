@@ -27,7 +27,7 @@ export const getErrorForInvalidAddresses = (text) => {
   for (let i = 0; i < lines.length; i++) {
     const addressWithAmount = lines[i].split(/[=, ]/);
     const address = addressWithAmount[0].trim();
-    if (address.length !== 40 || address.slice(0, 2) !== "0x") {
+    if (address.length !== 42 || address.slice(0, 2) !== "0x") {
       invalidAddressLines.push(i + 1);
     }
   }
